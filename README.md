@@ -1,73 +1,53 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Food Ordering System
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+A scalable food ordering system built with NestJS and PostgreSQL.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+---
 
-## Description
+## Features
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- User authentication & authorization
+- Menu and product management
+- Order management
+- REST API documentation
+- Environment configuration sample
+- Postman API collection included
 
-## Installation
+---
+
+## Setup Instructions
+
+1. **Clone the repository**
 
 ```bash
-$ npm install
+git clone https://github.com/hamzasaiff195/food-ordering-system.git
+cd food-ordering-system
 ```
 
-## Running the app
+## Scalability Considerations
 
-```bash
-# development
-$ npm run start
+The Food Ordering System is designed to scale both **horizontally** and **vertically**. Key strategies include:
 
-# watch mode
-$ npm run start:dev
+1. **Database Scaling**
+   - Use PostgreSQL with read replicas for scaling read-heavy queries.
+   - Use connection pooling to handle high concurrent connections.
+   - Separate databases for analytics and reporting if needed.
 
-# production mode
-$ npm run start:prod
-```
+2. **Caching**
+   - Use Redis to cache frequently accessed data like product menus and cart sessions.
+   - Reduce database load and improve response time.
 
-## Test
+3. **Backend Scaling**
+   - Deploy multiple instances of the NestJS API behind a load balancer.
+   - Use containerization (Docker) for easy horizontal scaling.
 
-```bash
-# unit tests
-$ npm run test
+4. **Asynchronous Processing**
+   - Use message queues (e.g., RabbitMQ, Kafka) for order processing, notifications, and email sending.
+   - Avoid blocking HTTP requests with heavy tasks.
 
-# e2e tests
-$ npm run test:e2e
+5. **Monitoring & Auto-Scaling**
+   - Use monitoring tools to track CPU, memory, and request metrics.
+   - Auto-scale backend and database based on traffic spikes.
 
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+6. **Microservices (Optional)**
+   - Split modules like orders, payments, and notifications into separate services as the system grows.

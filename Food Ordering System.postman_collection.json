@@ -1,0 +1,565 @@
+{
+	"info": {
+		"_postman_id": "c910a77e-bf3c-4530-ab21-8b89b3411513",
+		"name": "Food Ordering System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14145602",
+		"_collection_link": "https://tdb-team.postman.co/workspace/Hamza's-Workspace~b3454782-4afb-48d7-8372-90b6e5a8b458/collection/14145602-c910a77e-bf3c-4530-ab21-8b89b3411513?action=share&source=collection_link&creator=14145602"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Fetch Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Hamza\",\n    \"password\":\"Hamza123@\",\n    \"phone\":\"23123123123\",\n    \"email\":\"abc@abc.com\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/users",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login with password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"abc@abc.com\",\n    \"password\": \"Hamza123@\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/auth/login",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request OTP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"abc@abc.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/auth/request-otp",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"request-otp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login with OTP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"abc@abc.com\",\n    \"otp\":\"579403\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/auth/login-otp",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login-otp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Hamza\",\n    \"password\":\"Hamza123@\",\n    \"phone\":\"23123123123\",\n    \"email\":\"abc@abc.com\"\n\n}"
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/users",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Add product with variants",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Chicken Wings\",\n  \"description\": \"Crispy fried chicken wings\",\n  \"basePrice\": 450,\n  \"variants\": [\n    {\n      \"name\": \"8 pcs\",\n      \"price\": 450\n    },\n    {\n      \"name\": \"16 pcs\",\n      \"price\": 850\n    }\n  ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/products",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch products with variants",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3000/products?page=1&limit=0",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch with id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyZTY0NmE2ZS1lOTE2LTQzZDMtOWY2MC01N2JjZGIzNmY0YTgiLCJlbWFpbCI6ImhhbXphc2FpZmZAZ21haWwuY29tIiwiaWF0IjoxNzY4NDIzNjg0LCJleHAiOjE3Njg1MTAwODR9.l0vvyXAzIJa8KrQ8A9-E0841io2GpQfzdhY_pIRtKtE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3000/products/507b8a6e-f2a3-4f23-85da-38126008285a",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"507b8a6e-f2a3-4f23-85da-38126008285a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Add item to cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyZTY0NmE2ZS1lOTE2LTQzZDMtOWY2MC01N2JjZGIzNmY0YTgiLCJlbWFpbCI6ImhhbXphc2FpZmZAZ21haWwuY29tIiwiaWF0IjoxNzY4NDI3MDEzLCJleHAiOjE3Njg1MTM0MTN9.MBmpujvkZsK2VhYCmyJqlVC0vumCc4Jk72HM43GKhVQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"productId\": \"ee44e2d9-53c7-4554-9105-daa2cce034bb\",\n  \"variantId\": \"2d9b8825-fa3b-4417-b279-8d0ce6ee4ac6\",\n  \"quantity\": 2,\n  \"price\": 500\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/cart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch cart",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyZTY0NmE2ZS1lOTE2LTQzZDMtOWY2MC01N2JjZGIzNmY0YTgiLCJlbWFpbCI6ImhhbXphc2FpZmZAZ21haWwuY29tIiwiaWF0IjoxNzY4NDI3MDEzLCJleHAiOjE3Njg1MTM0MTN9.MBmpujvkZsK2VhYCmyJqlVC0vumCc4Jk72HM43GKhVQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/cart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove cart item by product and varient id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyZTY0NmE2ZS1lOTE2LTQzZDMtOWY2MC01N2JjZGIzNmY0YTgiLCJlbWFpbCI6ImhhbXphc2FpZmZAZ21haWwuY29tIiwiaWF0IjoxNzY4NDI3MDEzLCJleHAiOjE3Njg1MTM0MTN9.MBmpujvkZsK2VhYCmyJqlVC0vumCc4Jk72HM43GKhVQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/cart/507b8a6e-f2a3-4f23-85da-38126008285a?variantId=3030d6be-1567-4992-b5f7-4b1ecd541441",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cart",
+								"507b8a6e-f2a3-4f23-85da-38126008285a"
+							],
+							"query": [
+								{
+									"key": "variantId",
+									"value": "3030d6be-1567-4992-b5f7-4b1ecd541441"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clear Cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyZTY0NmE2ZS1lOTE2LTQzZDMtOWY2MC01N2JjZGIzNmY0YTgiLCJlbWFpbCI6ImhhbXphc2FpZmZAZ21haWwuY29tIiwiaWF0IjoxNzY4NDI3MDEzLCJleHAiOjE3Njg1MTM0MTN9.MBmpujvkZsK2VhYCmyJqlVC0vumCc4Jk72HM43GKhVQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/cart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cart"
+							],
+							"query": [
+								{
+									"key": "variantId",
+									"value": "3030d6be-1567-4992-b5f7-4b1ecd541441",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyZTY0NmE2ZS1lOTE2LTQzZDMtOWY2MC01N2JjZGIzNmY0YTgiLCJlbWFpbCI6ImhhbXphc2FpZmZAZ21haWwuY29tIiwiaWF0IjoxNzY4NDI3MDEzLCJleHAiOjE3Njg1MTM0MTN9.MBmpujvkZsK2VhYCmyJqlVC0vumCc4Jk72HM43GKhVQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productId\": \"ee44e2d9-53c7-4554-9105-daa2cce034bb\",\n    \"variantId\": \"2d9b8825-fa3b-4417-b279-8d0ce6ee4ac6\",\n    \"quantity\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/cart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cart"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Place order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyZTY0NmE2ZS1lOTE2LTQzZDMtOWY2MC01N2JjZGIzNmY0YTgiLCJlbWFpbCI6ImhhbXphc2FpZmZAZ21haWwuY29tIiwiaWF0IjoxNzY4NDI3MDEzLCJleHAiOjE3Njg1MTM0MTN9.MBmpujvkZsK2VhYCmyJqlVC0vumCc4Jk72HM43GKhVQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"paymentType\":\"cash\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update payment status",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"orderId\": \"61ed7fec-45bc-45a2-89be-f7407f85f99b\",\n  \"status\": \"paid\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/orders/payment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orders",
+								"payment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyZTY0NmE2ZS1lOTE2LTQzZDMtOWY2MC01N2JjZGIzNmY0YTgiLCJlbWFpbCI6ImhhbXphc2FpZmZAZ21haWwuY29tIiwiaWF0IjoxNzY4NDI3MDEzLCJleHAiOjE3Njg1MTM0MTN9.MBmpujvkZsK2VhYCmyJqlVC0vumCc4Jk72HM43GKhVQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -8,11 +8,11 @@ export const databaseProvider = {
   useFactory: async (configService: ConfigService) => {
     const dataSource = new DataSource({
       type: 'postgres',
-      host: configService.get<string>('DB_HOST', 'localhost'),
-      port: Number(configService.get<number>('DB_PORT', 5432)),
-      username: configService.get<string>('DB_USER', 'hamza'),
-      password: configService.get<string>('DB_PASS', ''),
-      database: configService.get<string>('DB_NAME', 'food-ordering'),
+      host: configService.get<string>('DB_HOST'),
+      port: Number(configService.get<number>('DB_PORT')),
+      username: configService.get<string>('DB_USER'),
+      password: configService.get<string>('DB_PASS'),
+      database: configService.get<string>('DB_NAME'),
       entities: [__dirname + '/../**/*.entity.{ts,js}'],
       synchronize: true,
       logging: ['error', 'warn'],
